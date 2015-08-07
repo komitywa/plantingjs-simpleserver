@@ -9,8 +9,10 @@ do
     npm run build
     cd ../plantingjs-simpleserver/src
     git pull
-    rm -r static
-    cp ../../plantingjs/dist static -r
+    rm -r static/plantingjs-engine
+    cp -R ../../plantingjs/dist static/plantingjs-engine/ 
+    cp -R ../../plantingjs/dist/objects static/
+    cp -R ../../plantingjs/dist/manifesto.js static/
     python create_db.py
     killall python
     python planting.py &
