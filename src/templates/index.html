@@ -5,26 +5,137 @@
         <meta name=description>
         <meta name=viewport content="width=device-width, initial-scale=1, minimal-ui">
         <title>plantingjs</title>
+        <link rel=stylesheet href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
         <link rel=stylesheet href="{{ url_for('static', filename='styles/main.css') }}">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+        <style type="text/css">
+            .content-section {
+                width : 100%;
+                min-height: 300px;
+            }
+
+            .start-app-button {
+                margin-top:10px;
+            } 
+
+            #section1 {
+                margin-top: 60px;
+                background-color:#ccc;
+            }
+
+            #section2 {
+                background-color: orange;
+            }
+
+            #section3 {
+                background-color: yellow;
+            }
+
+            .navbar-fixed-top {
+                background-color: #fff;
+            }
+
+
+        </style>
     </head>
     <body>
         <script type=text/javascript src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9fmhpMCKGM6BCMtsnn05GfxEK77jRHjc"></script>
         <div id="viewport" class="viewport"></div>
+
+        <div class="intro-page">
+            <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand page-scroll" href="#page-top">
+                            <i class="fa fa-play-circle"></i>  <span class="light">Plantingjs</span> 
+                        </a>
+                         <button type="button" class="btn btn-default start-app-button">Start planting</button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                        <ul class="nav navbar-nav">
+                            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                            <li class="hidden">
+                                <a href="#page-top"></a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#section1">Planting section 1 link</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#section2">Planting section 2 link</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#section3">Planting section 3 link</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+
+            <!-- Planting Sections -->
+            <section id="section1" class="container content-section text-center">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Planting section 1 content</h2>
+                        <p>lorem ipsum</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section2" class="container content-section text-center">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Planting section 2 content</h2>
+                        <p>lorem ipsum</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section3" class="container content-section text-center">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Planting section 3 content</h2>
+                        <p>lorem ipsum</p>
+                    </div>
+                </div>
+               
+            </section>
+        </div>
+
         <script type="text/javascript">
-            function simple_save_callback(planting) {
 
-                $.ajax({
-                    type: 'POST',
-                    url: '/save',
-                    data: JSON.stringify(planting),
-                    contentType: 'application/json;charset=UTF-8',
-                    dataType: 'html',
-                    success: function(responseData, textStatus, jqXHR) {
-                        $(location).attr('href', JSON.parse(responseData)['url']);
-                    },
-                });
+        $(document).ready(function(){
+            $('#viewport').hide();     
 
-            }
+            $('.start-app-button').on('click', function(){
+                $('.intro-page').hide()
+                $('#viewport').show()
+            });
+        });
+
+       function simple_save_callback(planting) {
+
+            $.ajax({
+            type: 'POST',
+            url: '/save',
+            data: JSON.stringify(planting),
+            contentType: 'application/json;charset=UTF-8',
+            dataType: 'html',
+            success: function(responseData, textStatus, jqXHR) {
+                $(location).attr('href', JSON.parse(responseData)['url']);
+            },
+        });
+
+        }
+
         </script>
         <script src="{{ url_for('static', filename='js/vendor.js') }}"></script>
         <script src="{{ url_for('static', filename='js/planting.js') }}"></script>
