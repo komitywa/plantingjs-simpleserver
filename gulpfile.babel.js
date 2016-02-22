@@ -104,7 +104,7 @@ gulp.task('assets', function() {
 /* End of building assets */
 
 /* Building html */
-gulp.task('default', function () {
+gulp.task('html', function () {
     return gulp.src('src/**/*.html')
       .pipe(processhtml({}))
       .pipe(gulp.dest('dist'));
