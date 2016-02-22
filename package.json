@@ -16,5 +16,8 @@
     "del": "^0.1.0",
     "gulp-filter": "^1.0.2",
     "gulp-flatten": "^0.0.4"
+  },
+  "devDependencies": {
+    "gulp-processhtml": "^1.1.0"
   }
 }
