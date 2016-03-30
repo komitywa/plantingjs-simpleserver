@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "./node_modules/.bin/gulp build"
+  },
   "dependencies": {
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
@@ -16,5 +19,8 @@
     "del": "^0.1.0",
     "gulp-filter": "^1.0.2",
     "gulp-flatten": "^0.0.4"
+  },
+  "devDependencies": {
+    "gulp-processhtml": "^1.1.0"
   }
 }

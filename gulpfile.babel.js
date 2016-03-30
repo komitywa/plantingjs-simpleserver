@@ -8,6 +8,7 @@ import flatten from 'gulp-flatten';
 import filter from 'gulp-filter';
 import gulp from 'gulp';
 import gutil from 'gulp-util';
+import processhtml from 'gulp-processhtml';
 import hbsfy from 'hbsfy';
 import plumber from 'gulp-plumber';
 import sass from 'gulp-sass';
@@ -102,6 +103,14 @@ gulp.task('assets', function() {
 });
 /* End of building assets */
 
+/* Building html */
+gulp.task('html', function () {
+    return gulp.src('src/**/*.html')
+      .pipe(processhtml({}))
+      .pipe(gulp.dest('dist'));
+});
+/* End of building html */
+
 /* Building all frontend assets */
-gulp.task('build', ['assets', 'css', 'fonts', 'js']);
+gulp.task('build', ['assets', 'css', 'fonts', 'js', 'html']);
 /* End of building all frontend assets */
