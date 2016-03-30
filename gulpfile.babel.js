@@ -112,5 +112,5 @@ gulp.task('html', function () {
 /* End of building html */
 
 /* Building all frontend assets */
-gulp.task('build', ['assets', 'css', 'fonts', 'js', 'default']);
+gulp.task('build', ['assets', 'css', 'fonts', 'js', 'html']);
 /* End of building all frontend assets */
