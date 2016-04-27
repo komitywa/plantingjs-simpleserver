@@ -1,4 +1,7 @@
 {
+  "scripts": {
+     "build": "./node_modules/.bin/gulp build"
+   },
   "dependencies": {
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
