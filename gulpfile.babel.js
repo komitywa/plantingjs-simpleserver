@@ -102,6 +102,11 @@ gulp.task('assets', function() {
 });
 /* End of building assets */
 
+gulp.task('html_templates', function() {
+  return gulp.src('./scr/templates/*')
+    .pipe(gulp.dest('./templates/'))
+});
+
 /* Building all frontend assets */
-gulp.task('build', ['assets', 'css', 'fonts', 'js']);
+gulp.task('build', ['assets', 'css', 'fonts', 'js', 'html_templates']);
 /* End of building all frontend assets */

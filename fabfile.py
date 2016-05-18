@@ -2,7 +2,7 @@
 
 u"""
 .. module:: fabfile
-Be aware, that becaus fabric doesn't support py3k You need to execute this
+Be aware, that because fabric doesn't support py3k You need to execute this
 particular script using Python 2.
 """
 
