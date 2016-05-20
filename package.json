@@ -3,7 +3,7 @@
     "node" : "<=5.0.0"
   },
   "scripts": {
-    "serve": "./node_modules/.bin/gulp serve"
+    "build": "./node_modules/.bin/gulp build"
   },
   "dependencies": {
     "babel-core": "^5.8.29",
